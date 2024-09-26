@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Simulador Financeiro - AirSense</title>
+</head>
+<body>
+    <center>
+    <H1>AirSense</H1>
+    <h3>Bem vindo(a) a sua simulação financeira. </h3><hr>
+    </center>
+    <h4>Para começarmos, pedimos que você informe o seu nome : </h4>
+    <input id="input_nome"> <br>
+    <h4>Agora, precisamos que você coloque a média de carros que sua fábrica produz: (por dia) </h4>
+    <input id="input_qtd_carros"> <br>
+    <h4>Por fim, precisamos que você coloque a média de preço dos carros da sua fábrica: </h4>
+    <input id="input_preco"> <br><br>
+    <button onclick="VerSimulacao()">
+        Ver a minha simulação 
+    </button>
+
+    <div id="Resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function VerSimulacao(){
+    const Nome = input_nome.value;
+    console.log(Nome);
+    const qtdCarros = Number(input_qtd_carros.value); 
+    console.log(qtdCarros);
+    const precoMedio = Number(input_preco.value); 
+    console.log(precoMedio);
+    
+    var ReceitapDia = precoMedio * qtdCarros; 
+    var PreçoHora = ReceitapDia / 24; 
+
+    Resultado.innerHTML=`Olá ${Nome}! A sua receita diária é de <strong>${ReceitapDia.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})} </strong>, sendo <strong>${PreçoHora.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</strong> por hora.`
+    }
+</script>
+
